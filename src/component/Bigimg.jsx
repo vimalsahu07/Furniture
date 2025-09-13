@@ -12,25 +12,32 @@ const Bigimg = () => {
   }, []);
 
   return (
-    <header
-      className="h-screen w-full bg-cover bg-center flex items-center justify-center text-white relative"
-      style={{ backgroundImage: "url('backgroundimg.png')" }}
-    >
-      {/* Overlay for shadow effect */}
+    <header className="h-screen w-full relative flex items-center justify-center">
+      {/* Background Image + Gradient */}
       <div
-        className={`absolute inset-0 bg-black transition-opacity duration-1000 ${
-          showOverlay ? "opacity-50" : "opacity-0"
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bf.png')",
+        }}
+      ></div>
+
+      {/* Overlay for fade effect */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-1000 ${
+          showOverlay ? "opacity-50 bg-black" : "opacity-0"
         }`}
       ></div>
 
       {/* Content */}
-      <div className="text-center px-4 relative z-10">
-        <h2 className="text-4xl sm:text-6xl font-bold mb-4 drop-shadow-lg">
+      <div className="relative z-10 text-center px-4 max-w-4xl">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-white drop-shadow-xl">
           Welcome to Our Brand
         </h2>
-        <p className="text-lg sm:text-xl mb-6 drop-shadow-md">
+        <p className="text-lg sm:text-xl md:text-2xl mb-6 text-white drop-shadow-md">
           Discover the latest trends in fashion
         </p>
+        
       </div>
     </header>
   );
